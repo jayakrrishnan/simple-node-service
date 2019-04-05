@@ -1,0 +1,32 @@
+{
+  "name": "node-service",
+  "version": "1.0.0",
+  "description": "sample node service",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bunyan": "^2.0.2",
+    "convict": "^4.4.1",
+    "express": "^4.16.4",
+    "forever-monitor": "^1.7.1",
+    "moment": "^2.24.0",
+    "swagger-express-mw": "0.1.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest test/ --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "author": "JaY",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "jest": "^24.3.1",
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.10.0"
+  }
+}

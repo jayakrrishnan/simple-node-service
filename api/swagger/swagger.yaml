@@ -1,0 +1,69 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Test node service
+
+host: localhost:10010
+
+basePath: /
+
+schemes:
+  - http
+  - https
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /status:
+      x-swagger-router-controller: service-controller
+      get:
+        operationId: healthCheck
+        description: Application health check
+        responses:
+          "200":
+            description: Success
+            schema:
+              $ref: "#/definitions/HealthCheckResponse"
+          "409":
+            description: Conflict
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+          default:
+            description: Error
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+definitions:
+  ErrorResponse:
+    type: object
+    properties:
+      statusCode:
+        type: number
+      message:
+        type: string
+  HealthCheckResponse:
+    properties:
+      name:
+        type: string
+      version:
+        type: string
+      description:
+        type: string
+      health:
+        type: string
+  #TempResponse:
+  #  type: array
+  #  items:
+  #    type: object
+  #    properties:
+  #      user:
+  #        type: object
+  #        properties:
+  #          name:
+  #            type: ['string','null']
+            
