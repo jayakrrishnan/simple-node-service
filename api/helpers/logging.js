@@ -5,7 +5,7 @@ const logging={
         return bunyan.createLogger({
             name:'test service',
             streams:[{
-                levell: 'debug',
+                level: 'debug',
                 path:process.env.LOG_PATH || './logs.json'
             }]
         });

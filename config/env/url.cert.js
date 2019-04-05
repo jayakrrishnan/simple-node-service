@@ -1,5 +1,6 @@
 let urls={
-    temp: 'https://www.google.co.in'
+    baseUrl1: 'https://jsonplaceholder.typicode.com/posts',
+    baseUrl:'http://dummy.restapiexample.com/api/v1/create'
 }
 
 module.exports= urls;

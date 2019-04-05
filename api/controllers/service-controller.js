@@ -1,6 +1,7 @@
 'use strict'
 
 const logger=require('../helpers/logging').createLogger();
+const service=require('../static-data/static-data-service');
 
 function healthCheck(req,res){
     res.send({
@@ -11,6 +12,19 @@ function healthCheck(req,res){
     });
 }
 
+function jsonCreateData(req,res){
+    createData(req,res);
+}
+
+let createData= async (req,res)=>{
+    const createdData= await service.createData(req,res);
+    if(createdData.error)
+        res.status(createdData.error.statusCode).send(createdData);
+    else
+        response.send(createData);
+}
+
 module.exports={
-    healthCheck
+    healthCheck,
+    jsonCreateData
 }

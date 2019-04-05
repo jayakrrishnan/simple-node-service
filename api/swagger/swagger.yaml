@@ -35,6 +35,31 @@ paths:
             description: Error
             schema:
               $ref: "#/definitions/ErrorResponse"
+  /create:
+      x-swagger-router-controller: service-controller
+      post:
+        operationId: jsonCreateData
+        description: create static data
+        parameters:
+          - name: Data
+            in: body
+            description: data to be inserted
+            required: true
+            schema:
+              $ref: "#/definitions/CreateRequest"
+        responses:
+          "200":
+            description: Success
+            schema:
+              $ref: "#/definitions/CreateResponse"
+          "409":
+            description: Conflict
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+          default:
+            description: Error
+            schema:
+              $ref: "#/definitions/ErrorResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 
@@ -56,6 +81,42 @@ definitions:
         type: string
       health:
         type: string
+  CreateRequest:
+    properties:
+      name:
+        type: string
+      salary:
+        type: string
+      age:
+        type: string
+  CreateResponse:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      salary:
+        type: string
+      age:
+        type: string        
+  #CreateRequest:
+  #  properties:
+  #    title:
+  #      type: string
+  #    body:
+  #      type: string
+  #    userId:
+  #      type: number
+  #CreateResponse:
+  #  properties:
+  #   id:
+  #      type: number
+  #    title:
+  #      type: string
+  #    body:
+  #      type: string
+  #    userId:
+  #      type: number      
   #TempResponse:
   #  type: array
   #  items:
