@@ -21,7 +21,7 @@ let createData= async (req,res)=>{
     if(createdData.error)
         res.status(createdData.error.statusCode).send(createdData);
     else
-        response.send(createData);
+        res.send(createdData);
 }
 
 module.exports={
